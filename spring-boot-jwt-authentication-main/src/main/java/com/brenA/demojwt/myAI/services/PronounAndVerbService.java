@@ -1,16 +1,16 @@
-package com.brenA.demojwt.myAI.services.Implements;
+package com.brenA.demojwt.myAI.services;
 
 import com.brenA.demojwt.myAI.entities.ConjugatedVerb;
 import com.brenA.demojwt.myAI.entities.OnlyInfinitiveVerb;
 import com.brenA.demojwt.myAI.entities.PronounAndVerb;
 import com.brenA.demojwt.myAI.enums.Pronoun;
-import com.brenA.demojwt.myAI.services.ConjugationsService;
-import com.brenA.demojwt.myAI.services.PronounAndVerbService;
+import com.brenA.demojwt.myAI.exceptions.InvalidWratingException;
+import com.brenA.demojwt.myAI.exceptions.ShortStringException;
 
-public class PronounAndVerbImplements implements PronounAndVerbService, ConjugationsService {
+public class PronounAndVerbService implements PronounAndVerbInterface, ConjugationsInterface {
 
     @Override
-    public PronounAndVerbService conjugateWiyhPronoun(Pronoun pronoun, OnlyInfinitiveVerb onlyInfinitiveVerb) {
+    public PronounAndVerbInterface conjugateWiyhPronoun(Pronoun pronoun, OnlyInfinitiveVerb onlyInfinitiveVerb) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'conjugateWiyhPronoun'");
     }
@@ -41,8 +41,22 @@ public class PronounAndVerbImplements implements PronounAndVerbService, Conjugat
 
     @Override
     public String separateEnding(OnlyInfinitiveVerb onlyInfinitiveVerb) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'separateEnding'");
+
+        OnlyInfinitiveVerb infinitiveVerb = onlyInfinitiveVerb;
+
+        if (infinitiveVerb.getInfinitive().length() >= 2) {
+            String lastTwoLetters = infinitiveVerb.getInfinitive()
+                    .substring(infinitiveVerb.getInfinitive().length() - 2);
+            if (lastTwoLetters.equalsIgnoreCase("ar") || lastTwoLetters.equalsIgnoreCase("er") ||
+                    lastTwoLetters.equalsIgnoreCase("ir")) {
+                return lastTwoLetters;
+            } else {
+                throw new InvalidWratingException("Error al procesar '" + infinitiveVerb.getInfinitive() + "'");
+            }
+
+        } else {
+            throw new ShortStringException("Error al procesar '" + infinitiveVerb.getInfinitive() + "'");
+        }
     }
 
 }

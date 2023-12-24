@@ -1,4 +1,4 @@
-package com.brenA.demojwt.seguridad.user;
+package com.brenA.demojwt.security.user;
 
 import java.util.Collection;
 import java.util.List;

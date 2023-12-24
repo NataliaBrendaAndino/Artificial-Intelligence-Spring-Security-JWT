@@ -1,9 +1,9 @@
 package com.brenA.demojwt.myAI.exceptions;
 
-public class InvalidWratingException extends RuntimeException {
+public class InvalidWordException extends RuntimeException {
     private static final String DESCRIPTION = "The word is not a verb";
 
-    public InvalidWratingException(String detail) {
+    public InvalidWordException(String detail) {
         super(detail + ". " + DESCRIPTION);
     }
 }

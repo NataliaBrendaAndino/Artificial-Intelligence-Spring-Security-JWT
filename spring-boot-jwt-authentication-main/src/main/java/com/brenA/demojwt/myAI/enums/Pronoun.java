@@ -1,5 +1,17 @@
-package com.brenA.demojwt.myAI.entities;
+package com.brenA.demojwt.myAI.enums;
 
-public class Pronoun {
-
+public enum Pronoun {
+    YO,
+    TÚ,
+    VOS,
+    USTED,
+    ÉL,
+    ELLA,
+    NOSOTROS,
+    NOSOTRAS,
+    VOSOTROS,
+    VOSOTRAS,
+    USTEDES,
+    ELLOS,
+    ELLAS;
 }

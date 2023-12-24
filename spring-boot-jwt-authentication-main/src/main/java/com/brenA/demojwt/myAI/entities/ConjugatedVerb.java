@@ -1,5 +1,14 @@
 package com.brenA.demojwt.myAI.entities;
 
-public class ConjugateVerb {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+public class ConjugatedVerb {
+
+    private String conjugatedVerb;
 
 }

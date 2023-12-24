@@ -1,4 +1,4 @@
-package com.brenA.demojwt.seguridad.auth;
+package com.brenA.demojwt.security.auth;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

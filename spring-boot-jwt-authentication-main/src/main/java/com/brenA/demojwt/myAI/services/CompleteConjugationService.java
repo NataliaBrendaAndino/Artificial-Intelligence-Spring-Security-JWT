@@ -10,37 +10,31 @@ public class CompleteConjugationService implements CompleteConjugationInterface,
 
     @Override
     public CompleteConjugation conjugate(OnlyInfinitiveVerb onlyInfinitiveVerb) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'conjugate'");
     }
 
     @Override
     public PronounAndVerb verbsAR(Pronoun pronoun, String verbalRoot) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'verbsAR'");
     }
 
     @Override
     public PronounAndVerb verbsER(Pronoun pronoun, String verbalRoot) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'verbsER'");
     }
 
     @Override
     public PronounAndVerb verbsIR(Pronoun pronoun, String verbalRoot) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'verbsIR'");
     }
 
     @Override
-    public ConjugatedVerb separateRoot(OnlyInfinitiveVerb onlyInfinitiveVerb) {
-        // TODO Auto-generated method stub
+    public String separateRoot(OnlyInfinitiveVerb onlyInfinitiveVerb) {
         throw new UnsupportedOperationException("Unimplemented method 'separateRoot'");
     }
 
     @Override
     public String separateEnding(OnlyInfinitiveVerb onlyInfinitiveVerb) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'separateEnding'");
     }
 

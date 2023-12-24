@@ -1,4 +1,4 @@
-package com.brenA.demojwt.seguridad.user;
+package com.brenA.demojwt.security.user;
 
 public enum Role {
     ADMIN,

@@ -1,4 +1,4 @@
-package com.brenA.demojwt.seguridad.jwt;
+package com.brenA.demojwt.security.jwt;
 
 import java.security.Key;
 import java.util.Date;

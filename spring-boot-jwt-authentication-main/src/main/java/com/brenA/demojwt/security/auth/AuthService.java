@@ -1,4 +1,4 @@
-package com.brenA.demojwt.seguridad.auth;
+package com.brenA.demojwt.security.auth;
 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -6,10 +6,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.brenA.demojwt.seguridad.jwt.JwtService;
-import com.brenA.demojwt.seguridad.user.Role;
-import com.brenA.demojwt.seguridad.user.User;
-import com.brenA.demojwt.seguridad.user.UserRepository;
+import com.brenA.demojwt.security.jwt.JwtService;
+import com.brenA.demojwt.security.user.Role;
+import com.brenA.demojwt.security.user.User;
+import com.brenA.demojwt.security.user.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 

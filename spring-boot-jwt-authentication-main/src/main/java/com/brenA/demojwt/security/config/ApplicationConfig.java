@@ -1,4 +1,4 @@
-package com.brenA.demojwt.seguridad.config;
+package com.brenA.demojwt.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.brenA.demojwt.seguridad.user.UserRepository;
+import com.brenA.demojwt.security.user.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 

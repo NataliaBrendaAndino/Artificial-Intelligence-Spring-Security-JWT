@@ -1,4 +1,4 @@
-package com.brenA.demojwt.seguridad.config;
+package com.brenA.demojwt.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,7 +9,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.brenA.demojwt.seguridad.jwt.JwtAuthenticationFilter;
+import com.brenA.demojwt.security.jwt.JwtAuthenticationFilter;
 
 import lombok.RequiredArgsConstructor;
 

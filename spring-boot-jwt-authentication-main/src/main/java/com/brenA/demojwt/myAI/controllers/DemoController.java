@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/ai")
+@RequestMapping("/aiverbs/")
 @RequiredArgsConstructor
 public class DemoController {
 
-    @PostMapping(value = "demo")
+    @PostMapping("/{onlyVerb}")
     public String welcome() {
-        return "Bienvenido a su aplicación segura";
+        return "The ";
     }
 }

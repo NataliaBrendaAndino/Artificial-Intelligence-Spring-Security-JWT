@@ -38,4 +38,73 @@ public class CompleteConjugationService implements CompleteConjugationInterface,
         throw new UnsupportedOperationException("Unimplemented method 'separateEnding'");
     }
 
+    @Override
+    public ConjugatedVerb firstPersonSingular(String rootVerb) {
+        throw new UnsupportedOperationException("Unimplemented method 'firstPersonSingular'");
+    }
+
+    @Override
+    public ConjugatedVerb secondPersonSingularAR(String pronoun, String rootVerb) {
+        throw new UnsupportedOperationException("Unimplemented method 'secondPersonSingularAR'");
+    }
+
+    @Override
+    public ConjugatedVerb thirdPersonSingularAR(String rootVerb) {
+        throw new UnsupportedOperationException("Unimplemented method 'thirdPersonSingularAR'");
+    }
+
+    @Override
+    public ConjugatedVerb firstPersonPluralAR(String rootVerb) {
+        throw new UnsupportedOperationException("Unimplemented method 'firstPersonPluralAR'");
+    }
+
+    @Override
+    public ConjugatedVerb secondPersonPluralAR(String pronoun, String rootVerb) {
+        throw new UnsupportedOperationException("Unimplemented method 'secondPersonPluralAR'");
+    }
+
+    @Override
+    public ConjugatedVerb thirdPersonPluralAR(String rootVerb) {
+        throw new UnsupportedOperationException("Unimplemented method 'thirdPersonPluralAR'");
+    }
+
+    @Override
+    public ConjugatedVerb secondPersonSingularER(String rootVerb) {
+        throw new UnsupportedOperationException("Unimplemented method 'secondPersonSingularER'");
+    }
+
+    @Override
+    public ConjugatedVerb thirdPersonSingularErIr(String rootVerb) {
+        throw new UnsupportedOperationException("Unimplemented method 'thirdPersonSingularErIr'");
+    }
+
+    @Override
+    public ConjugatedVerb firstPersonPluralER(String rootVerb) {
+        throw new UnsupportedOperationException("Unimplemented method 'firstPersonPluralER'");
+    }
+
+    @Override
+    public ConjugatedVerb secondPersonPluralER(String rootVerb) {
+        throw new UnsupportedOperationException("Unimplemented method 'secondPersonPluralER'");
+    }
+
+    @Override
+    public ConjugatedVerb thirdPersonPluralErIr(String rootVerb) {
+        throw new UnsupportedOperationException("Unimplemented method 'thirdPersonPluralErIr'");
+    }
+
+    @Override
+    public ConjugatedVerb secondPersonSingularIR(String rootVerb) {
+        throw new UnsupportedOperationException("Unimplemented method 'secondPersonSingularIR'");
+    }
+
+    @Override
+    public ConjugatedVerb firstPersonPluralIR(String rootVerb) {
+        throw new UnsupportedOperationException("Unimplemented method 'firstPersonPluralIR'");
+    }
+
+    @Override
+    public ConjugatedVerb secondPersonPluralIR(String rootVerb) {
+        throw new UnsupportedOperationException("Unimplemented method 'secondPersonPluralIR'");
+    }
 }

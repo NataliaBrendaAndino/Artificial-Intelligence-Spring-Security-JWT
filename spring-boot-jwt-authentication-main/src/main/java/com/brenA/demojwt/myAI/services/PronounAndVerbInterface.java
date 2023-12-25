@@ -5,6 +5,6 @@ import com.brenA.demojwt.myAI.enums.Pronoun;
 
 public interface PronounAndVerbInterface {
 
-    public PronounAndVerbInterface conjugateWiyhPronoun(Pronoun pronoun, OnlyInfinitiveVerb onlyInfinitiveVerb);
+    public PronounAndVerbInterface conjugateWithPronoun(Pronoun pronoun, OnlyInfinitiveVerb onlyInfinitiveVerb);
 
 }

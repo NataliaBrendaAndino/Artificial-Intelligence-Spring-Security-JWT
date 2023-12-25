@@ -6,6 +6,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import com.brenA.demojwt.myAI.entities.ConjugatedVerb;
 import com.brenA.demojwt.myAI.entities.OnlyInfinitiveVerb;
 import com.brenA.demojwt.myAI.exceptions.InvalidWordException;
 import com.brenA.demojwt.myAI.exceptions.ShortStringException;
@@ -21,9 +22,11 @@ public class PronounAndVerbServiceTest {
     @Mock
     private OnlyInfinitiveVerb onlyInfinitiveVerb;
 
+    @Mock
+    private ConjugatedVerb conjugatedVerb;
+
     @BeforeEach
     public void setUp() {
-        // Inicializar mocks antes de cada prueba
         MockitoAnnotations.openMocks(this);
     }
 
@@ -59,5 +62,18 @@ public class PronounAndVerbServiceTest {
         when(onlyInfinitiveVerb.getInfinitive()).thenReturn("estudiar");
         String result = pronounAndVerbService.separateRoot(onlyInfinitiveVerb);
         assertThat(result).isEqualTo("estudi");
+    }
+
+    @Test
+    public void testFirstPersonSingular() {
+        conjugatedVerb = pronounAndVerbService.firstPersonPluralAR("estudi");
+        assertThat(conjugatedVerb.getConjugatedVerb()).isEqualTo("estudiamos");
+    }
+
+    @Test
+    public void testSecondPersonSingularAR() {
+
+        conjugatedVerb = pronounAndVerbService.secondPersonSingularAR("vos", "estudi");
+        assertThat(conjugatedVerb.getConjugatedVerb()).isEqualTo("estudiás");
     }
 }

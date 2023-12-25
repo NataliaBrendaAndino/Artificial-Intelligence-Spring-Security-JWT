@@ -4,6 +4,7 @@ import com.brenA.demojwt.myAI.entities.ConjugatedVerb;
 import com.brenA.demojwt.myAI.entities.OnlyInfinitiveVerb;
 import com.brenA.demojwt.myAI.entities.PronounAndVerb;
 import com.brenA.demojwt.myAI.enums.Pronoun;
+import com.brenA.demojwt.myAI.exceptions.InvalidPronounException;
 import com.brenA.demojwt.myAI.exceptions.InvalidWordException;
 import com.brenA.demojwt.myAI.exceptions.ShortStringException;
 
@@ -25,54 +26,53 @@ public class PronounAndVerbService implements PronounAndVerbInterface, Conjugati
             return pronounAndVerb;
         }
 
-        if (pronString.equalsIgnoreCase("TÚ")) {
-            String tu = "TÚ";
-            pronounAndVerb.setConjugatedVerb(secondPersonSingularAR(tu, verbalRoot));
+        else if (pronString.equalsIgnoreCase("TÚ")) {
+            String pronounX = "TÚ";
+            pronounAndVerb.setConjugatedVerb(secondPersonSingularAR(pronounX, verbalRoot));
             return pronounAndVerb;
         }
 
-        // switch (pron) {
-        // case VOS:
-        // String vos = "VOS";
-        // pronounAndVerb.setConjugatedVerb(secondPersonSingularAR(vos, verbalRoot));
-        // break;
-        // case USTED:
-        // String usted = "USTED";
-        // secondPersonSingularAR(usted, verbalRoot);
-        // break;
-        // case ÉL:
-        // thirdPersonSingularAR(verbalRoot);
-        // break;
-        // case ELLA:
-        // thirdPersonSingularAR(verbalRoot);
-        // break;
-        // case NOSOTROS:
-        // firstPersonPluralAR(verbalRoot);
-        // break;
-        // case NOSOTRAS:
-        // firstPersonPluralAR(verbalRoot);
-        // break;
-        // case VOSOTROS:
-        // String vosotros = "VOSOTROS";
-        // secondPersonPluralAR(vosotros, verbalRoot);
-        // break;
-        // case VOSOTRAS:
-        // String vosotras = "VOSOTRAS";
-        // secondPersonPluralAR(vosotras, verbalRoot);
-        // break;
-        // case USTEDES:
-        // String ustedes = "USTEDES";
-        // secondPersonPluralAR(ustedes, verbalRoot);
-        // break;
-        // case ELLOS:
-        // thirdPersonPluralAR(verbalRoot);
-        // break;
-        // case ELLAS:
-        // thirdPersonPluralAR(verbalRoot);
-        // break;
-        // }
+        else if (pronString.equalsIgnoreCase("VOS")) {
+            String pronounX = "VOS";
+            pronounAndVerb.setConjugatedVerb(secondPersonSingularAR(pronounX, verbalRoot));
+            return pronounAndVerb;
+        }
 
-        return null;
+        else if (pronString.equalsIgnoreCase("USTED")) {
+            String pronounX = "USTED";
+            pronounAndVerb.setConjugatedVerb(secondPersonSingularAR(pronounX, verbalRoot));
+            return pronounAndVerb;
+        }
+
+        else if (pronString.equalsIgnoreCase("ÉL") || pronString.equalsIgnoreCase("ELLA")) {
+            pronounAndVerb.setConjugatedVerb(thirdPersonSingularAR(verbalRoot));
+            return pronounAndVerb;
+        }
+
+        else if (pronString.equalsIgnoreCase("NOSOTROS") || pronString.equalsIgnoreCase("NOSOTRAS")) {
+            pronounAndVerb.setConjugatedVerb(firstPersonPluralAR(verbalRoot));
+            return pronounAndVerb;
+        }
+
+        else if (pronString.equalsIgnoreCase("VOSOTROS") || pronString.equalsIgnoreCase("VOSOTRAS")) {
+            String pronounX = "VOSOTROS";
+            pronounAndVerb.setConjugatedVerb(secondPersonPluralAR(pronounX, verbalRoot));
+            return pronounAndVerb;
+        }
+
+        else if (pronString.equalsIgnoreCase("USTEDES")) {
+            String pronounX = "USTEDES";
+            pronounAndVerb.setConjugatedVerb(secondPersonPluralAR(pronounX, verbalRoot));
+            return pronounAndVerb;
+        }
+
+        else if (pronString.equalsIgnoreCase("ELLOS") || pronString.equalsIgnoreCase("ELLAS")) {
+            pronounAndVerb.setConjugatedVerb(thirdPersonPluralAR(verbalRoot));
+            return pronounAndVerb;
+        } else {
+            throw new InvalidPronounException("Error processing '" + pronString + "'");
+        }
+
     }
 
     @Override
@@ -134,7 +134,7 @@ public class PronounAndVerbService implements PronounAndVerbInterface, Conjugati
             verb.setConjugatedVerb(rootVerb.concat("a"));
             return verb;
         } else {
-            throw new InvalidWordException("Error processing '" + pronoun + "'");
+            throw new InvalidPronounException("Error processing '" + pronoun + "'");
         }
     }
 

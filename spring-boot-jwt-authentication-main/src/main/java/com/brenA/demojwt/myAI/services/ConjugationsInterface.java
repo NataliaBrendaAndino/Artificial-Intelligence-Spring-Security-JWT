@@ -29,20 +29,20 @@ public interface ConjugationsInterface {
 
     public ConjugatedVerb thirdPersonPluralAR(String rootVerb);
 
-    public ConjugatedVerb secondPersonSingularER(String rootVerb);
+    public ConjugatedVerb secondPersonSingularER(String pronoun, String rootVerb);
 
     public ConjugatedVerb thirdPersonSingularErIr(String rootVerb);
 
     public ConjugatedVerb firstPersonPluralER(String rootVerb);
 
-    public ConjugatedVerb secondPersonPluralER(String rootVerb);
+    public ConjugatedVerb secondPersonPluralER(String pronoun, String rootVerb);
 
     public ConjugatedVerb thirdPersonPluralErIr(String rootVerb);
 
-    public ConjugatedVerb secondPersonSingularIR(String rootVerb);
+    public ConjugatedVerb secondPersonSingularIR(String pronoun, String rootVerb);
 
     public ConjugatedVerb firstPersonPluralIR(String rootVerb);
 
-    public ConjugatedVerb secondPersonPluralIR(String rootVerb);
+    public ConjugatedVerb secondPersonPluralIR(String pronoun, String rootVerb);
 
 }

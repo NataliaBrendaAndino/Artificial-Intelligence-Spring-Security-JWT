@@ -1,79 +1,46 @@
 package com.brenA.demojwt.myAI.services;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.brenA.demojwt.myAI.entities.ConjugatedVerb;
 import com.brenA.demojwt.myAI.entities.OnlyInfinitiveVerb;
-import com.brenA.demojwt.myAI.exceptions.InvalidWordException;
-import com.brenA.demojwt.myAI.exceptions.ShortStringException;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import org.assertj.core.api.Assertions;
-import static org.mockito.Mockito.when;
+import com.brenA.demojwt.myAI.entities.PronounAndVerb;
+import com.brenA.demojwt.myAI.enums.Pronoun;
 
 public class PronounAndVerbServiceTest {
-    @InjectMocks
-    private PronounAndVerbService pronounAndVerbService;
+
+    PronounAndVerbService pronounAndVerbService;
 
     @Mock
-    private OnlyInfinitiveVerb onlyInfinitiveVerb;
+    ConjugationsService conjugationsService;
 
-    @Mock
-    private ConjugatedVerb conjugatedVerb;
+    Pronoun pronoun;
+
+    OnlyInfinitiveVerb onlyInfinitiveVerb;
+
+    PronounAndVerb pronounAndVerb;
 
     @BeforeEach
     public void setUp() {
+        pronounAndVerb = new PronounAndVerb();
         MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    public void testSeparateEndingValidInfinitive() {
-        when(onlyInfinitiveVerb.getInfinitive()).thenReturn("sobrevivir");
+    void testConjugateWithPronoun() {
+        when(onlyInfinitiveVerb.getInfinitive()).thenReturn("amar");
 
-        String result = pronounAndVerbService.separateEnding(onlyInfinitiveVerb);
+        when(conjugationsService.separateEnding(onlyInfinitiveVerb)).thenReturn("ar");
+        when(conjugationsService.separateRoot(onlyInfinitiveVerb)).thenReturn("am");
 
-        assertThat(result).isEqualTo("ir");
+        pronounAndVerb = pronounAndVerbService.conjugateWithPronoun(pronoun.VOS, onlyInfinitiveVerb);
+        assertThat(pronounAndVerb.getConjugatedVerb().getConjugatedVerb()).isEqualTo("amás");
     }
 
-    @Test
-    public void testSeparateEndingShortString() {
-        when(onlyInfinitiveVerb.getInfinitive()).thenReturn("r");
-
-        Assertions.assertThatThrownBy(() -> pronounAndVerbService.separateEnding(onlyInfinitiveVerb))
-                .isInstanceOf(ShortStringException.class)
-                .hasMessage("Error processing 'r'. The verb must have two or more letters");
-    }
-
-    @Test
-    public void testSeparateEndingInvalidInfinitive() {
-        when(onlyInfinitiveVerb.getInfinitive()).thenReturn("incorrecto");
-
-        Assertions.assertThatThrownBy(() -> pronounAndVerbService.separateEnding(onlyInfinitiveVerb))
-                .isInstanceOf(InvalidWordException.class)
-                .hasMessage("Error processing 'incorrecto'. The word is not a verb");
-    }
-
-    @Test
-    public void testSeparateRoot() {
-        when(onlyInfinitiveVerb.getInfinitive()).thenReturn("estudiar");
-        String result = pronounAndVerbService.separateRoot(onlyInfinitiveVerb);
-        assertThat(result).isEqualTo("estudi");
-    }
-
-    @Test
-    public void testFirstPersonSingular() {
-        conjugatedVerb = pronounAndVerbService.firstPersonPluralAR("estudi");
-        assertThat(conjugatedVerb.getConjugatedVerb()).isEqualTo("estudiamos");
-    }
-
-    @Test
-    public void testSecondPersonSingularAR() {
-
-        conjugatedVerb = pronounAndVerbService.secondPersonSingularAR("vos", "estudi");
-        assertThat(conjugatedVerb.getConjugatedVerb()).isEqualTo("estudiás");
-    }
 }

@@ -1,16 +1,20 @@
 package com.brenA.demojwt.myAI.services;
 
+import org.springframework.stereotype.Service;
+
 import com.brenA.demojwt.myAI.entities.OnlyInfinitiveVerb;
 import com.brenA.demojwt.myAI.entities.PronounAndVerb;
 import com.brenA.demojwt.myAI.enums.Pronoun;
 import com.brenA.demojwt.myAI.exceptions.FatalException;
+import com.brenA.demojwt.myAI.exceptions.InvalidWordException;
 
+@Service
 public class PronounAndVerbService implements PronounAndVerbInterface {
 
     private final ConjugationsService conjugationsService;
 
     public PronounAndVerbService(ConjugationsService conjugationsService) {
-        this.conjugationsService = conjugationsService;
+        this.conjugationsService = new ConjugationsService();
     }
 
     @Override
@@ -31,8 +35,8 @@ public class PronounAndVerbService implements PronounAndVerbInterface {
             pronounAndVerb = conjugationsService.verbsIR(pronoun, root);
             return pronounAndVerb;
         } else {
-            throw new FatalException("Error processing the conjugateWithPronoun method with the pronoun '" + pronoun
-                    + "' and the verb " + onlyInfinitiveVerb.getInfinitive());
+            throw new FatalException("Error processing pronoun '" + pronoun.toString() + "' and verb' "
+                    + onlyInfinitiveVerb.getInfinitive() + "'");
         }
     }
 }
